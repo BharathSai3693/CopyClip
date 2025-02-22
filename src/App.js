@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Additem } from "./components/Additem.js";
+import Copylist from "./components/Copylist.js";
+import { UserProvider } from "./UserContext.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <div className="App">
+        <h1 className="text-4xl font-bold text-blue-600 p-3">CopyCLIP</h1>
+        <div className="flex flex-col  min-h-screen min-v-screen">
+          <Additem />
+          
+          <hr className="my-2"></hr>
+          <Copylist />
+        </div>
+      </div>
+    </UserProvider>
   );
 }
 
