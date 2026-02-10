@@ -1,16 +1,32 @@
 import React from "react";
 
-export const Deletebutton = ({ onClick }) => {
+export const Deletebutton = ({ onClick, disabled = false }) => {
+  const handleClick = (event) => {
+    event.stopPropagation();
+    if (!disabled && onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <div
-      onClick={onClick}
-      className="bg-white group hover:bg-red-500 p-2 rounded-lg shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-105 cursor-pointer"
+    <button
+      type="button"
+      onClick={handleClick}
+      onPointerDown={(event) => event.stopPropagation()}
+      disabled={disabled}
+      className={`bg-white group p-2 rounded-lg shadow-lg flex items-center justify-center transition-all duration-300 transform ${
+        disabled
+          ? "opacity-50 cursor-not-allowed pointer-events-none"
+          : "hover:bg-red-500 hover:scale-105 cursor-pointer"
+      }`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="size-4 text-red-500 group-hover:text-white transition-all duration-300"
+        className={`size-4 transition-all duration-300 ${
+          disabled ? "text-red-400" : "text-red-500 group-hover:text-white"
+        }`}
       >
         <path
           fillRule="evenodd"
@@ -18,6 +34,6 @@ export const Deletebutton = ({ onClick }) => {
           clipRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   );
 };

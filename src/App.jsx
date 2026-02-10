@@ -1,7 +1,7 @@
 import "./App.css";
-import { Additem } from "./components/Additem.js";
-import Copylist from "./components/Copylist.js";
-import { UserProvider } from "./UserContext.js";
+import { Additem } from "./components/Additem.jsx";
+import Copylist from "./components/Copylist.jsx";
+import { UserProvider } from "./UserContext.jsx";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../UserContext.jsx";
 
 export const Additem = () => {
   const { items, setItems } = useContext(UserContext);
@@ -23,8 +23,12 @@ export const Additem = () => {
   // Handle form submission (optional)
   const handleSubmit = (e) => {
     e.preventDefault();
+    const createId = () =>
+      `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
     // Create new item object
     const newItem = {
+      id: createId(),
       name: name,
       text: text,
     };
