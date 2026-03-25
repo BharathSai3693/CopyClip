@@ -79,6 +79,7 @@ export const Copyclip = ({
 
   const transitionClass =
     isArrange || isDragging ? "transition-none" : "transition duration-300";
+  const previewText = item.text.replace(/\s+/g, " ").trim();
 
   return (
     <div
@@ -180,7 +181,9 @@ export const Copyclip = ({
           </div>
         </div>
       ) : (
-        <div className="text-lg whitespace-pre-wrap break-words">{item.text}</div>
+        <div className="mt-2 w-full truncate text-lg">
+          {previewText}
+        </div>
       )}
     </div>
   );
