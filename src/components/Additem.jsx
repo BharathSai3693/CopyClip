@@ -45,7 +45,7 @@ export const Additem = () => {
   return (
     <div className="">
       <form onSubmit={handleSubmit}>
-        <div className="flex p-2">
+        <div className="flex flex-col p-2 sm:flex-row sm:items-start">
           {/* Name input */}
           <input
             id="name"
@@ -58,19 +58,19 @@ export const Additem = () => {
             className="border m-2 w-[25rem] placeholder:text-[1rem] text-[2rem] sm:text-xl px-4 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
           />
           {/* Text input */}
-          <input
+          <textarea
             id="text"
             name="text"
-            type="text"
             value={text}
             onChange={handleTextChange}
             placeholder="Enter the Answer (Ex: John Doe)"
-            className="border m-2 w-[25rem] placeholder:text-[1rem] text-[2rem] sm:text-xl px-4 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
+            rows={4}
+            className="border m-2 w-[25rem] min-h-32 resize-y placeholder:text-[1rem] text-[2rem] sm:text-xl px-4 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
           />
           {/* Add button */}
           <button
             type="submit"
-            className="m-2 bg-blue-600 rounded px-4 py-1 text-white"
+            className="m-2 bg-blue-600 rounded px-4 py-1 text-white sm:self-start"
           >
             Add
           </button>

@@ -151,14 +151,14 @@ export const Copyclip = ({
             placeholder="Enter the Question"
             className="border w-full placeholder:text-[1rem] text-[1rem] sm:text-base px-3 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
           />
-          <input
-            type="text"
+          <textarea
             value={draftText}
             onChange={(event) => setDraftText(event.target.value)}
             onClick={(event) => event.stopPropagation()}
             onPointerDown={(event) => event.stopPropagation()}
             placeholder="Enter the Answer"
-            className="border w-full placeholder:text-[1rem] text-[1rem] sm:text-base px-3 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
+            rows={4}
+            className="border w-full min-h-28 resize-y placeholder:text-[1rem] text-[1rem] sm:text-base px-3 py-2 text-black placeholder-black border-1 border-blue rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-600"
           />
           <div className="flex gap-2">
             <button
@@ -180,7 +180,7 @@ export const Copyclip = ({
           </div>
         </div>
       ) : (
-        <div className="text-lg truncate">{item.text}</div>
+        <div className="text-lg whitespace-pre-wrap break-words">{item.text}</div>
       )}
     </div>
   );
